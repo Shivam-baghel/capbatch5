@@ -6,27 +6,27 @@ import javax.persistence.Persistence;
 
 import com.cg.jpademo.entity.Product;
 
-public class SaveProductDemo {
+public class UpdateProduct {
 
 	public static void main(String[] args) {
 		
 		Product product = new Product();
-		product.setProductId(333);
-		product.setProductName("NewProduct-1");
-		product.setProductPrice(50000);
-		
+		product.setProductId(2222);
+		product.setProductName("Nokia");
+		product.setProductPrice(60000);
+	
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("CAP-DB");
 		EntityManager em = factory.createEntityManager();
-		
 		em.getTransaction().begin();
 		
-		em.persist(product);
-		System.out.println("Product saved");				
-		em.getTransaction().commit();
+		Product product1 = em.find(Product.class, product.getProductId());
+		product1.setProductName(product.getProductName());
+		product1.setProductPrice(product.getProductPrice());
+		System.out.println("Product updated");
 		
+		em.getTransaction().commit();
 		em.close();
 		factory.close();
-
 	}
 
 }

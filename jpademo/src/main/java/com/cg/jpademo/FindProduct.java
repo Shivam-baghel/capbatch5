@@ -6,25 +6,31 @@ import javax.persistence.Persistence;
 
 import com.cg.jpademo.entity.Product;
 
-public class SaveProductDemo {
+public class FindProduct {
 
 	public static void main(String[] args) {
-		
-		Product product = new Product();
-		product.setProductId(333);
-		product.setProductName("NewProduct-1");
-		product.setProductPrice(50000);
 		
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("CAP-DB");
 		EntityManager em = factory.createEntityManager();
 		
+		Product product = em.find(Product.class, 2222);
+		
 		em.getTransaction().begin();
 		
-		em.persist(product);
-		System.out.println("Product saved");				
+		if(product != null) {
+			System.out.println(product.getProductId()+" "+product.getProductName()+" "+product.getProductPrice());
+		   // product.setProductPrice(55555); // database updated
+		}
+		else {
+			System.out.println("Product not available");
+		}
 		em.getTransaction().commit();
-		
 		em.close();
+		
+		product.setProductPrice(1111111); // database is not updated
+		
+		
+		
 		factory.close();
 
 	}
