@@ -9,10 +9,7 @@ import javax.persistence.Persistence;
 
 public class OneToManyDemo {
 
-	public static void main(String[] args) {
-		
-		
-		
+	public static void main(String[] args) {		
 		
 		Department department = new Department();
 		department.setDeptId(10);
@@ -43,11 +40,12 @@ public class OneToManyDemo {
 		em.getTransaction().begin();
 		
 		em.persist(department);
+
 		
 		System.out.println("Dept and emps data saved.");		
 		
 		em.getTransaction().commit();
-		em.clear();
+		em.close();
 		factory.close();
 
 	}
