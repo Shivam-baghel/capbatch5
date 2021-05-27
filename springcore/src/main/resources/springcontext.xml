@@ -7,6 +7,18 @@
 	<bean id="msgbean" class="com.cg.springcore.beans.HelloBean">
 		<property name="message" value ="Spring Framework is great"></property>
 	</bean>
-
+	
+	<bean id="areaBean" class="com.cg.springcore.beans.CalculateArea">
+		<property name="shape" ref="triangle"/>		
+	</bean>
+	
+	<bean id="circle" class="com.cg.springcore.beans.Circle">
+		<property name="radius" value ="5"></property>
+	</bean>	
+	
+	<bean id="triangle" class="com.cg.springcore.beans.Triangle">
+		<property name="base" value ="2"></property>
+		<property name="height" value ="6"></property>
+	</bean>
 
 </beans>
