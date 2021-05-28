@@ -2,6 +2,7 @@ package com.cg.springcore.beans;
 
 public class CalculateArea {
 	
+	
 	private Shape shape;
 	
 	public void setShape(Shape shape) {

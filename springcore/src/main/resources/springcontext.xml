@@ -8,6 +8,10 @@
 		<property name="message" value ="Spring Framework is great"></property>
 	</bean>
 	
+	<bean id="msgbean2" class = "com.cg.springcore.beans.HelloBean2" scope="s">
+	<constructor-arg value="Spring Framework is great msg from hello bean 2"/>
+	</bean>
+	
 	<bean id="areaBean" class="com.cg.springcore.beans.CalculateArea">
 		<property name="shape" ref="triangle"/>		
 	</bean>

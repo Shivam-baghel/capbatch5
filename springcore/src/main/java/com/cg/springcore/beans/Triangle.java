@@ -12,7 +12,7 @@ public class Triangle implements Shape {
 		this.height = height;
 	}
 
-	@Override
+	
 	public double area() {
 		double result = 0.5*base*height;
 		return result;
