@@ -27,6 +27,7 @@
 	<bean id="emp1" class="com.cg.springcore.beans.Employee" >
 		<property name="empId" value="1111" />
 		<property name="name" value="Rohit" />
+		
 	</bean>
 	
 	<bean id="emp2" class="com.cg.springcore.beans.Employee">
