@@ -1,5 +1,7 @@
 package com.cg.traineeapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,7 +58,35 @@ public class TraineeController {
 		
 		traineeService.deleteTrainee(traineeId);
 		
-		return "home";
+		return "redirect:/home";
+	}
+	
+	@RequestMapping("/updateform")
+	public String updateTraineeForm() {
+		return "updateform";
+	}
+	
+	@RequestMapping("/gettrainee")
+	public String updateTrainee(@RequestParam("taineeId") int traineeId, Model model) {
+		
+		Trainee trainee = traineeService.fetchTraineeById(traineeId);
+		model.addAttribute("trainee", trainee);		
+		return "updateform";
+	}
+	
+	@RequestMapping(value="/update", method = RequestMethod.POST)
+	public String modifyTrainee(@ModelAttribute Trainee trainee) {
+		
+		traineeService.modifyTrainee(trainee);
+		
+		return "redirect:/home";
+	}
+	
+	@RequestMapping("/getall")
+	public String getAllTrainees(Model model) {
+		List<Trainee> trainees = traineeService.fetchAllTrainees();
+		model.addAttribute("trainees", trainees);		
+		return "alltrainees";
 	}
 	
 }
