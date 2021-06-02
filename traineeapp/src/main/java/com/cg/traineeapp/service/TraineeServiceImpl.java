@@ -23,28 +23,31 @@ public class TraineeServiceImpl implements TraineeService {
 		
 	}
 
+	@Transactional
 	@Override
 	public void deleteTrainee(int traineeId) {
-		// TODO Auto-generated method stub
+		
+		traineeDao.deleteTrainee(traineeId);
 		
 	}
 
 	@Override
 	public void modifyTrainee(Trainee trainee) {
-		// TODO Auto-generated method stub
+		
+		traineeDao.updateTrainee(trainee);
 		
 	}
 
 	@Override
-	public Trainee fetchTraineeById(int traineeId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Trainee fetchTraineeById(int traineeId) {	
+		
+		return traineeDao.getTraineeById(traineeId);
 	}
 
 	@Override
 	public List<Trainee> fetchAllTrainees() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return traineeDao.getAllTrainees();
 	}
 
 }

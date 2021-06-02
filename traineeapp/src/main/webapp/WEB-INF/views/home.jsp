@@ -16,7 +16,7 @@
 <td><a href="addform">Add a Trainee</a></td>
 </tr>
 <tr>
-<td><a href="">Delete a Trainee</a></td>
+<td><a href="deleteform">Delete a Trainee</a></td>
 </tr>
 <tr>
 <td><a href="">Modify a Trainee</a></td>
