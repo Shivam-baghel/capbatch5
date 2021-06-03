@@ -5,8 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.cg.springbootapp.entity.Trainee;
 import com.cg.springbootapp.repository.TraineeRepository;
 
@@ -16,15 +14,14 @@ public class TraineeServiceImpl implements TraineeService {
 	@Autowired
 	private TraineeRepository traineeRepository;
 
-	@Transactional
 	@Override
-	public void saveTrainee(Trainee trainee) {
+	public Trainee saveTrainee(Trainee trainee) {
 		
-		traineeRepository.save(trainee);
-		
+		return traineeRepository.save(trainee);
+			
 	}
 
-	@Transactional
+
 	@Override
 	public void deleteTrainee(int traineeId) {
 		
@@ -32,7 +29,7 @@ public class TraineeServiceImpl implements TraineeService {
 		
 	}
 
-	@Transactional
+
 	@Override
 	public void modifyTrainee(Trainee trainee) {
 		
