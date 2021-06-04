@@ -33,7 +33,7 @@ public class TraineeController {
 	
 	@GetMapping("/{traineeId}")
 	public Trainee getTrainee(@PathVariable("traineeId") int traineeId) {		
-		Trainee trainee = traineeService.fetchTraineeById(traineeId).get();		
+		Trainee trainee = traineeService.fetchTraineeById(traineeId);		
 		return trainee;
 	}
 	
@@ -58,4 +58,15 @@ public class TraineeController {
 		return new ResponseEntity<>(trainee,HttpStatus.OK);
 	}	
 	
+	@GetMapping("/getall/{domainName}")
+	public List<Trainee> getAllTraineesFromDomain(@PathVariable("domainName") String domain) {		
+		List<Trainee> trainees = traineeService.fetchTrineesFromDomain(domain)	;
+		return trainees;
+	}
+	
+	@GetMapping("/getall/order")
+	public List<Trainee> getAllTraineesInOrder() {		
+		List<Trainee> trainees = traineeService.fetchTrineesInOrderByLocation();
+		return trainees;
+	}
 }

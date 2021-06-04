@@ -7,14 +7,18 @@ import com.cg.springbootapp.entity.Trainee;
 
 public interface TraineeService {	
 
-	public void saveTrainee(Trainee trainee);
+	public Trainee saveTrainee(Trainee trainee);
 	
 	public void deleteTrainee(int traineeId);
 	
 	public void modifyTrainee(Trainee trainee);
 	
-	public Optional<Trainee> fetchTraineeById(int traineeId);
+	public Trainee fetchTraineeById(int traineeId);
 	
 	public List<Trainee> fetchAllTrainees();
+	
+	public List<Trainee> fetchTrineesFromDomain(String domainName);
+	
+	public List<Trainee> fetchTrineesInOrderByLocation();
 
 }
